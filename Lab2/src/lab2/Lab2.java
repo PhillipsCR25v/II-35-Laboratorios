@@ -24,13 +24,28 @@ public class Lab2 {
             //numeros[3] = 40;
 
             // 1. Preguntar tamaño del arreglo
-            String size = JOptionPane.showInputDialog("Ingrese el tamaño del arreglo");
+            int size = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el tamaño del arreglo"));
 
             // 2. Inicializar el arreglo con el tamaño 
-            numeros = new int [Integer.parseInt(size)];
+            numeros = new int [size];
+             /*
+            * Se valida que no el tamaño no se mayor que 10, 
+            * Para que no ser tan tedioso.
+            */
+            
+            while (size > 10) {
+                JOptionPane.showMessageDialog(null, "El valor debe ser menor que 10");
+                size = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el tamaño del arreglo"));
+            }
+ 
             
             //3. Llenar el arreglo
+            for (int i = 0 ; i < numeros.length; i++) {
+                String valor = JOptionPane.showInputDialog("Ingrese el valor del index" + i);
+                int intValor = Integer.parseInt(valor);
+                numeros[i] = 1;
             
+        }
             JOptionPane.showMessageDialog(null, Arrays.toString(numeros));
 
         } catch (ArrayIndexOutOfBoundsException e) {
